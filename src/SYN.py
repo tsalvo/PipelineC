@@ -147,10 +147,10 @@ def PART_SET_TOOL(part_str, allow_fail=False):
                 or part_str.lower().startswith("5c")
             ):
                 SYN_TOOL = QUARTUS
-                if os.path.exists(QUARTUS.QUARTUS_PATH):
-                    print("Quartus:", QUARTUS.QUARTUS_PATH, flush=True)
-                else:
-                    raise Exception("Quartus install not found!")
+                # if os.path.exists(QUARTUS.QUARTUS_PATH):
+                #     print("Quartus:", QUARTUS.QUARTUS_PATH, flush=True)
+                # else:
+                #     raise Exception("Quartus install not found!")
             elif part_str.lower().startswith("lfe5u") or part_str.lower().startswith(
                 "ice"
             ):
@@ -185,8 +185,8 @@ def PART_SET_TOOL(part_str, allow_fail=False):
                     )
                     sys.exit(-1)
 
-        if SYN_TOOL is not None:
-            print("Using", SYN_TOOL.__name__, "synthesizing for part:", part_str)
+        # if SYN_TOOL is not None:
+        #     print("Using", SYN_TOOL.__name__, "synthesizing for part:", part_str)
 
 
 def TOOL_DOES_PNR():
@@ -5179,10 +5179,10 @@ def GET_VHDL_FILES_TCL_TEXT_AND_TOP(
     files_txt = ""
 
     # Built in src/vhdl #TODO just auto add every file in dir
-    files_txt += SYN_OUTPUT_DIRECTORY + "/" + "built_in/pipelinec_fifo_fwft.vhd" + " "
-    files_txt += (
-        SYN_OUTPUT_DIRECTORY + "/" + "built_in/pipelinec_async_fifo_fwft.vhd" + " "
-    )
+    # files_txt += SYN_OUTPUT_DIRECTORY + "/" + "built_in/pipelinec_fifo_fwft.vhd" + " "
+    # files_txt += (
+    #     SYN_OUTPUT_DIRECTORY + "/" + "built_in/pipelinec_async_fifo_fwft.vhd" + " "
+    # )
 
     # C defined structs
     files_txt += SYN_OUTPUT_DIRECTORY + "/" + "c_structs_pkg" + VHDL.VHDL_PKG_EXT + " "

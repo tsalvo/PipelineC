@@ -13,7 +13,7 @@ if ENV_TOOL_PATH:
     QUARTUS_SH_PATH = ENV_TOOL_PATH
     QUARTUS_PATH = os.path.abspath(os.path.dirname(QUARTUS_SH_PATH))
 else:
-    QUARTUS_PATH = "/media/1TB/Programs/Linux/intelFPGA_lite/20.1/quartus/bin"
+    QUARTUS_PATH = "/media/1TB/Programs/Linux/intelFPGA_lite/22.1/quartus/bin"
 
 
 # Need to know family in addition to part number?
@@ -427,13 +427,14 @@ project_close
         )
         f.close()
 
+        log_text = ""
         # Execute the command
-        syn_imp_bash_cmd = "bash " + sh_file
-        print("Running Quartus:", sh_path, flush=True)
-        C_TO_LOGIC.GET_SHELL_CMD_OUTPUT(syn_imp_bash_cmd, cwd=output_directory)
-        f = open(log_path, "r")
-        log_text = f.read()
-        f.close()
+        # syn_imp_bash_cmd = "bash " + sh_file
+        # print("Running Quartus:", sh_path, flush=True)
+        # C_TO_LOGIC.GET_SHELL_CMD_OUTPUT(syn_imp_bash_cmd, cwd=output_directory)
+        # f = open(log_path, "r")
+        # log_text = f.read()
+        # f.close()
         # print("log:",log_text)
         # sys.exit(0)
 
