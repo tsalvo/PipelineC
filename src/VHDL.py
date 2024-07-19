@@ -4574,10 +4574,10 @@ def GET_FIXED_FLOAT_PKG_INCLUDE_TEXT():
         # And write vhdl using those proposed files
         text += """library ieee_proposed;
 use ieee_proposed.float_pkg.all;\n"""
-
-    else:
-        # Default use ieee package
-        text += "use ieee.float_pkg.all;\n"
+# 
+#     else:
+#         # Default use ieee package
+#         text += "use ieee.float_pkg.all;\n"
 
     return text
 
