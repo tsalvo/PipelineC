@@ -1161,7 +1161,7 @@ begin
             rw_clk_names.add(rw_clk_name)
             if len(rw_clk_names) > 1 and var_name not in parser_state.async_wires:
                 raise Exception(
-                    f"Cannot have multiple clock domains for shared global {var_name}! {rw_clk_names}"
+                    f"Cannot have multiple clock domains for shared global {var_name}! {rw_clk_names} {rw_func_insts}"
                 )
 
         # Assemble driver write wire text
@@ -1557,8 +1557,8 @@ def GET_BLACKBOX_MODULE_TEXT(inst_name, Logic, parser_state, TimingParamsLookupT
     rv += (
         " "
         + " "
-        + "if rising_edge(clk) and "
-        + C_TO_LOGIC.CLOCK_ENABLE_NAME
+        + "if rising_edge(clk) then\n"
+        + "   if " + C_TO_LOGIC.CLOCK_ENABLE_NAME
         + "(0)='1' then"
         + "\n"
     )
@@ -1589,6 +1589,7 @@ def GET_BLACKBOX_MODULE_TEXT(inst_name, Logic, parser_state, TimingParamsLookupT
             + "\n"
         )
 
+    rv += " " + " " + " end if;" + "\n"
     rv += " " + " " + "end if;" + "\n"
     rv += " " + "end process;" + "\n"
 
